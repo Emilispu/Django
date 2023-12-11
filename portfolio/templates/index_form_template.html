@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block "content" %}
+            <h2>"European People's Health Index"</h2>
+<label style="text-align: justify;">
+
+            The ratio between life expectancy (LE) and healthy life years (HLY), which we calculate using the formula:
+            ((HLY0/LE0)+(HLY50/LE50)+(HLY65/LE65))/3.<br>
+            This ratio indicates the percentage relationship between quality of life and health status.<br>
+
+
+        </label>
+<hr>
+
+
+<form method="POST" class="health-data-form">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label te-xt-muted">Select Time:</label><br>
+                {{ form.select_field }}
+
+            </div>
+            <div class="col-md-2">
+                <label  class="form-label text-muted">Select state:</label><br>
+
+                {{ form.select_field2 }}
+
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-secondary">Get Index</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <label class="form-label text-muted align-justify" style="text-align: justify;">
+<!--                "HLY_0": "Healthy life years in absolute value at birth",<br>-->
+<!--                "HLY_PC_0": "Healthy life years at birth in percentage of the total life expectancy",<br>-->
+<!--                "LE_0": "Life expectancy in absolute value at birth",<br>-->
+<!--                "HLY_50": "Healthy life years in absolute value at 50",<br>-->
+<!--                "HLY_PC_50": "Healthy life years at 50 in percentage of the total life expectancy",<br>-->
+<!--                "LE_50": "Life expectancy in absolute value at 50",<br>-->
+<!--                "HLY_65": "Healthy life years in absolute value at 65",<br>-->
+<!--                "HLY_PC_65": "Healthy life years at 65 in percentage of the total life expectancy",<br>-->
+<!--                "LE_65": "Life expectancy in absolute value at 65" "<br>-->
+            </label></div>
+        <div class="col-md-5">
+
+        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<hr>
+
+
+
+        </div></div></div></div></div>
+            {% endblock %}

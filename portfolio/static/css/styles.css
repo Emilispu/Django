@@ -1,0 +1,35 @@
+
+body {
+    margin: 0 auto; 
+    max-width: 80%; 
+}
+
+hr.style1{
+	border-top: 1px solid #8c8b8b;
+}
+
+.nav-link:hover {
+  background-color: #e3ddda;
+}
+
+.health-data-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.health-data-form .form-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.health-data-form .select-field {
+    flex: 1 1 auto;
+    margin-right: 10px; /* Adjust as needed for spacing between fields */
+}
+
+.health-data-form .select-field label {
+    display: block;
+    margin-bottom: 5px;
+}

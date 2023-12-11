@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block "content" %}
+<div style="overflow: hidden;">
+    <div style="float: left; width: 69%; text-align: justify;">
+        {% for page in pages %}
+
+        <h2>{{ page.title }}</h2>
+        <p><strong>Author:</strong> {{ page.author }}</p>
+        <p><strong>Created Date:</strong> {{ page.created_data }}</p>
+        <p><strong>Content:</strong> {{ page.content|slice:":200" }}</p>
+        <div style="overflow: hidden;"> <!-- Wrapping div for inline elements -->
+            <div style="float: left;"><a href="{% url 'single_page_view' pk=page.pk %}">Read more</a></div>
+            <div style="float: right;">Reviews: {{ page.review_count }}</div>
+        </div>
+
+        <hr>
+        {% endfor %}
+
+        <nav aria-label="...">
+            {% if pages.has_other_pages %}
+            <ul class="pagination pagination-sm justify-content-end">
+                {% for i in pages.paginator.page_range %}
+                {% if pages.number == i %}
+                <li class="page-item secondary">
+                    <a class="page-link">{{ i }}</a>
+                </li>
+                {% else %}
+                <li class="page-item secondary">
+                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </nav>
+
+
+    </div>
+    <p></p>
+    <div class="border border-secondary"
+         style="float: right; background-color: #f8f8ef; width: 25%; text-align: justify; ">
+        <div style="padding: 5px;">
+            <h5>Last reviews:</h5>
+            {% for review in reviews|slice:"0:4" %}
+            <hr>
+            <strong>{{ review.reviewer }}</strong>, <em> {{ review.data_created }}</em>
+            <p>{{ review.content|slice:":50" }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

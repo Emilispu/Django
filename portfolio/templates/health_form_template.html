@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+
+{% block "content" %}
+<label style="text-align: center;">
+    <h2>"European Health Metrics: Analysis and Forecast of Health and Longevity based on HLY Data"</h2>
+</label>
+<label style="text-align: justify;">
+    <p>The aim of this research is to examine health and longevity indicators across European countries based on Healthy
+        Life Years (HLY), Life Expectancy (LE), and the Health Indices of European populations. The main projected
+        objectives are as follows:<br>
+
+        <b>Identify Health Disparities Among European Countries</b>: Thoroughly analyze HLY, LE, and health index
+        figures in each country to identify disparities in health and longevity.<br>
+
+        <b>Identify the Relationship Between Life Expectancy and Healthy Life Years</b>: Analyze data to understand how
+        life expectancy differs from healthy life years and whether these two concepts are interrelated.<br>
+
+        <b>Evaluate the European People's Health Index</b>: Develop a health index based on HLY, LE, and possibly other
+        indicators to assess the overall health status of each country's population.<br>
+
+        <b>Forecast Health Condition Trends</b>: Using existing data, predict how health conditions and longevity might
+        change in European countries in the next few years.<br>
+
+        These objectives aim to provide deep insights and understanding of the health situation in European countries,
+        enabling the identification of disparities and trends that could be beneficial in developing health policies for
+        better health outcomes across Europe.</p><br>
+</label>
+<h3>Healthy life years at birth by sex - Create Data from Eurostat API and download CSV file </h3>
+<hr>
+
+<label class="form-label text-muted align-justify" style="text-align: justify;">
+This report aims to gather data on Healthy Life Years (HLY) and Total Life Expectancy (LE) differences and ratios by gender, utilizing the Eurostat API and downloading a CSV file. The report will present the following absolute values: absolute Healthy Life Years at birth, absolute Life Expectancy at birth, absolute Healthy Life Years at age 50, absolute Life Expectancy at age 50, absolute Healthy Life Years at age 65, and absolute Life Expectancy at age 65. This information will provide insights into the health status across different European regions and countries, facilitating analysis and aiding in the formulation of health policies to enhance overall population health.
+</label>
+
+<form method="POST" class="health-data-form">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label te-xt-muted">Select Time:</label><br>
+
+                {{ form.select_field3 }}
+
+            </div>
+            <div class="col-md-4">
+                <label  class="form-label text-muted">Select report's:</label><br>
+
+                {{ form.select_field2 }}
+
+            </div>
+            <div class="col-md-2">
+                <label  class="form-label text-muted">Select state:</label><br>
+
+                {{ form.select_field }}
+
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-secondary">Download</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <!-- ... -->
+    <!-- Display the generated table here -->
+    <div class="col-md-12">
+        {% if table_data %}
+            {{ table_data | safe }}
+        {% else %}
+            <p>No data available</p>
+        {% endif %}
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <label class="form-label text-muted align-justify" style="text-align: justify;">
+                "HLY_0": "Healthy life years in absolute value at birth",<br>
+                "HLY_PC_0": "Healthy life years at birth in percentage of the total life expectancy",<br>
+                "LE_0": "Life expectancy in absolute value at birth",<br>
+                "HLY_50": "Healthy life years in absolute value at 50",<br>
+                "HLY_PC_50": "Healthy life years at 50 in percentage of the total life expectancy",<br>
+                "LE_50": "Life expectancy in absolute value at 50",<br>
+                "HLY_65": "Healthy life years in absolute value at 65",<br>
+                "HLY_PC_65": "Healthy life years at 65 in percentage of the total life expectancy",<br>
+                "LE_65": "Life expectancy in absolute value at 65" "<br>
+            </label></div>
+        <div class="col-md-5">
+
+        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<hr>
+
+             </div></div></div></div></div>
+            {% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block "second_nav" %}
+
+
+<nav>
+    <ul class="nav flex-column">
+        <p>
+        <p>
+        <p></p>
+        {% for p in pages %}
+        <li class="nav-item"><a class="nav-link" style="font-size: 18px; color: gray;"
+                                href="{% url 'single_page_view' pk=p.pk %}"
+                                onmouseover="this.style.backgroundColor = '#e3ddda'"
+                                onmouseout="this.style.backgroundColor = ''">{{ p.href_name }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+
+{% endblock %}
+
+{% block "content" %}
+<div style="text-align: center;">
+    <hr class="hr hr-blurry"/>
+    <h1>{{ page.title }}</h1>
+    <hr class="hr hr-blurry"/>
+</div>
+<div style="text-align: left; color: lightgray;">
+    <p>Author: {{ page.author }}, created: {{page.created_data|date:"m-d-Y" }}</p>
+</div>
+<div style="overflow: hidden;">
+    <div style="float: left; width: 59%; text-align: justify;">
+        {% for x in content_paragraphs %}
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ x }}</p>
+        {% endfor %}
+    </div>
+    <div style="float: right; width: 39%;text-align: center;">
+        {% if page.images%}
+        <img src="{{ page.images.url }}" alt="{{ page.title }}">
+        {% endif%}
+    </div>
+</div>
+
+
+<p>
+    <a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+       aria-expanded="false" aria-controls="collapseExample">
+        Read on..
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+
+        <div style="text-align: justify;">
+            {% if page.text != 'None'%}
+            {% for x in text_paragraphs %}
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ x }}</p>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.downloads%}
+            <a href="{{ page.downloads.url }}">
+                <button class="btn btn-outline-secondary">
+                    Download
+                </button>
+            </a>
+            {% endif %}
+
+            {% if page.href_to_site != 'None'%}
+            <a href="{{ page.href_to_site }}">
+                <button class="btn btn-outline-secondary">Link to Site</button>
+            </a>
+            {% endif %}
+
+            {% if page.href_to_github != 'None' %}
+            <a href="{{ page.href_to_github }}" target="_blank">
+                <button class="btn btn-outline-secondary">Link to GitHub</button>
+            </a>
+            {%endif %}
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <h2>Reviews:</h2>
+    {% for review in page_reviews %}
+    <hr>
+    <strong>{{ review.reviewer }}</strong>, <em> {{ review.data_created }}</em>
+    <p>{{ review.content }}</p>
+
+
+    {% empty %}
+    <p>No reviews yet.</p>
+    {% endfor %}
+</div>
+<!-- Apžvalgų forma -->
+<div>
+    <h2>Leave a Review</h2>
+    <form method="post" action="{% url 'add_review' pk=page.pk %}">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+<!-- Apžvalgų sąrašas -->
+
+
+{% endblock %}

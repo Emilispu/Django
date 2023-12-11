@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block "content" %}
+
+
+            <h2>"Your query result"</h2>
+<p>
+    <label style="text-align: justify;">This ratio indicates the percentage relationship between quality of life and health status. The higher this ratio, the more part of life is spent healthy. This is an important indicator that helps us understand how long people live healthy lives in relation to their overall life expectancy.</label>
+<table>
+        {{ form | safe}}
+</table>
+
+<img src="/media/media/img/plot.png" alt="Plot Image">
+
+
+
+            {% endblock %}

@@ -1,0 +1,48 @@
+URCIS - Užsieniečių registracijos centro informacinė sistema.<br>
+<br>
+**** URCIS yra nemokama aplikacija, sukurta mokymosi tikslais ********<br>
+**** Visos teisės priklauso Emilis Puidokas ********<br>
+<br>
+URCIS skirtas apgyvendintų prieglobsčio prašytojų apskaitai vykdyti.<br>
+******<br>
+URCIS yra registruota (mokomaisiais tikslais) 18000 įrašų.<br>
+Visi vardas, gimimo dienos ir kita informacija šiuo metu yra parinkta atsitiktinai ir eturi jokio ryšio su realiais žmonėmis.<br>
+*****<br>
+<br>
+URCIS sudaro administravimo ir vartotojo aplinkos<br>
+<br>
+-------------ADMINISTRAVIMO APLINKA----------<br>
+Login: admin<br>
+passw: a<br>
+<br>
+Administravimas:<br>
+<br>
+Duomenų forma:<br>
+Čia įrašomi naujai apgyvendinti užsieniečiai. Įkeliamos jų nuotraukos,suvedami duomenys. Redaguojami esami.<br>
+<br>
+Naujo vartotojo registravimas:<br>
+Čia registruojami nauji URCIS - naudotojai<br>
+<br>
+ID card:<br>
+Šioje skiltyje spausdinamos URCIS asmens tapatybės kortelės užsieniečiams, nurodant jų teisininį statusą.<br>
+<br>
+--------------- Vartotojo aplinka ------------<br>
+<br>
+Duomenų forma:<br>
+Galima peržiūrėti informaciją apie asmenį, be teisės redaguoti<br>
+<br>
+Informacija> Paskutinis bylos kodas.<br>
+Informacija apie paskutinį naudojamą bylos kodą, atsižvelgiant į kilmės šalį<br>
+<br>
+Informacija> Bendra apgyvendinimo informacija:<br>
+Pateikiama informaciją apie centro užpildymą, pasiskirstymą pagal lytis, statusą, šalis, šeimininę padėtį<br>
+<br>
+Statistika:<br>
+Grafiškai pateikiama URC apgyvendinimo statistika nuo įkūrimo iki dabar.<br>
+<br>
+Pažymos:<br>
+galima atspausdinti pažymą apie užsieniečio laikiną apgyvendinimą centre.<br>
+<br>
+Paieška:<br>
+Užsieniečio/ių paieška pagal pateiktus duomenis<br>
+<br>
